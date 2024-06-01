@@ -1,13 +1,23 @@
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'; // Ensure you have this file for Tailwind CSS imports
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
+import CoverLetter from './components/CoverLetter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
-    <div className="bg-gray-800">
-      <div className='h-16 flex items-center'>
-        <p>Employee</p>
-      </div>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route index element={<Homepage />} />
+        <Route path="/coverletter" element={<CoverLetter />} />
+      </Routes>
+    </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
