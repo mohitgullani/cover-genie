@@ -14,7 +14,6 @@ public class AIController {
 
     @PostMapping("/coverletter")
     public String getCoverLetter(@RequestBody Content content){
-        System.out.println(content.resume);
         return aiService.generateCoverLetter(content);
     }
 }

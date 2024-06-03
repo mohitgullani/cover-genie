@@ -4,6 +4,7 @@ import com.spring.covergenie.Entities.Content;
 import com.spring.covergenie.OpenAIResponse;
 import com.spring.covergenie.service.AIService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +30,9 @@ public class AIServiceImpl implements AIService {
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
     @Override
     public String generateCoverLetter(Content content){
-        String prompt = "Generate a Professional and human written Cover Letter based on below Resume:\n" + content.getResume() + "and Job Description:\n" + content.getJd() + "" +
-                "please don not include the company information at the top" +
-                "Please preform the data cleaning on resume and job description first";
+        String prompt = "Generate a Professional and human written Cover Letter not more than 350 words based on below Resume:\n" + content.getResume() + "and Job Description:\n" + content.getJd() + "" +
+                "Please preform the data cleaning on resume and job description first" +
+                "and also mention the details of the person on the cover letter by fetching it from the resume";
 
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("model", "gpt-3.5-turbo");
