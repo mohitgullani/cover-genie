@@ -9,7 +9,7 @@ const CoverLetter = () => {
   });
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [missingContent, setMissingContent] = useState(null); // State variable for missing content
+  const [missingContent, setMissingContent] = useState(null);
 
   const handleOnChange = (e) => {
       const value = e.target.value;
@@ -22,7 +22,7 @@ const CoverLetter = () => {
   const generateCoverLetter = async (e) => {
       e.preventDefault();
       if (!content.resume || !content.jd) {
-          setMissingContent('Please provide both resume and job description.'); // Set missing content message
+          setMissingContent('Please provide both resume and job description.'); 
           return;
       }
       setLoading(true);
@@ -56,7 +56,7 @@ const CoverLetter = () => {
               setCopied(true);
               setTimeout(() => {
                   setCopied(false);
-              }, 2000); // Revert to "Copy" after 2 seconds
+              }, 2000);
           })
           .catch((error) => console.error('Error copying to clipboard:', error));
   };
@@ -83,10 +83,7 @@ const CoverLetter = () => {
                     <div className="space-y-8 col-span-1">
                       <div className="bg-blue-100 p-6 rounded-lg shadow-lg transform">
                           <h2 className="text-xl font-bold mb-4 text-blue-600">Resume Upload or Paste</h2>
-                          {/* Resume input field */}
                           <div className="flex flex-col items-start space-y-2">
-                              
-                              {/* Or paste textarea */}
                               <textarea
                                   className="w-full h-60 border-2 border-blue-300 rounded-md focus:ring-blue-500 focus:border-blue-500 outline-none px-4 py-2"
                                   placeholder="Paste your resume here..."

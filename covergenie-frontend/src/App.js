@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css'; // Ensure you have this file for Tailwind CSS imports
+import './App.css';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import CoverLetter from './components/CoverLetter';
